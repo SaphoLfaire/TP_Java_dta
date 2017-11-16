@@ -1,5 +1,9 @@
 package TP10;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 public class Segment extends Figure {
 
 	private Point debut;
@@ -28,9 +32,16 @@ public class Segment extends Figure {
 	}
 
 	@Override
-	public Point[] getPoints() {
-		Point[] segTab = { debut, fin };
+	public Collection<Point> getPoints() {
+		List<Point> segTab = new ArrayList<>();
+		segTab.add(debut);
+		segTab.add(fin);
 		return segTab;
+	}
+
+	@Override
+	public boolean couvre(Point point) {
+		return point.distance(point, debut) == point.distance(point, fin);
 	}
 
 }

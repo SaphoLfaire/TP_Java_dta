@@ -37,5 +37,10 @@ public class Point {
 		return false;
 
 	}
+	
+	public double distance(Point pt1, Point pt2) {
+		double distance1 = Math.sqrt((pt1.getX()-pt2.getX())*(pt1.getX()-pt2.getX())+(pt1.getY()-pt2.getY())*(pt1.getY()-pt2.getY()));
+		return distance1;
+	}
 
 }
