@@ -82,6 +82,29 @@ public class TP_main {
 			System.out.println("Pas de figure ! le point n'est couvert par rien");
 		}
 		
+		FigureUtil.afficheTest("TP23", "true, false, true, false, true, false, true, false");
+		Rond rd2 = new Rond(p1, 4);
+		Rond rd3 = new Rond (p1, 3);
+		System.out.println(rd1.equals(rd2));//true
+		System.out.println(rd1.equals(rd3));//false
+		
+		Figure segment2 = new Segment(p1, 5, true);
+		Figure segment3 = new Segment(p1, 4, true);
+		System.out.println(segment.equals(segment2));//true
+		System.out.println(segment.equals(segment3));//false
+		
+		Rectangle rt2 = new Rectangle(new Point(10, 3), 2, 6);
+		Rectangle rt3 = new Rectangle(new Point(10, 3), 5, 6);
+		System.out.println(rt1.equals(rt2));//true
+		System.out.println(rt1.equals(rt3));//false
+		
+		Carre carre2 = new Carre(p1, 5);
+		Rectangle rtcarre = new Rectangle(p1, 5, 5);
+		System.out.println(carre.equals(carre2)); //true
+		System.out.println(carre.equals(rtcarre)); //false : a corriger
+		
+		FigureUtil.afficheTest("TP24", "");
+		
 		
 
 

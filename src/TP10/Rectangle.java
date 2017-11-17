@@ -82,4 +82,47 @@ public class Rectangle extends Figure implements Surfacable {
 				&& point.getY() < getPointBasGauche().getY() && point.getY() > getPointHautDroit().getY();
 	}
 
+
+	/**
+	 * Attention methode generee automatiquement
+	 * Permet de tester l'egalite entre les figures (point a point, classe a classe)
+	 * Bug : rectangle et carre identiques renvoient false
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Rectangle other = (Rectangle) obj;
+		if (pointBasGauche == null) {
+			if (other.getPointBasGauche() != null)
+				return false;
+		} else if (!pointBasGauche.equals(other.getPointBasGauche()))
+			return false;
+		
+		if (this.getPointHautGauche() == null) {
+			if (other.getPointHautGauche() != null)
+				return false;
+		} else if (!this.getPointHautGauche().equals(other.getPointHautGauche()))
+			return false;
+		
+		if (this.getPointBasDroit() == null) {
+			if (other.getPointBasDroit() != null)
+				return false;
+		} else if (!this.getPointBasDroit().equals(other.getPointBasDroit()))
+			return false;
+		
+		if (this.getPointHautDroit() == null) {
+			if (other.getPointHautDroit() != null)
+				return false;
+		} else if (!this.getPointHautDroit().equals(other.getPointHautDroit()))
+			return false;
+		return true;
+	}
+	
+	
+
 }

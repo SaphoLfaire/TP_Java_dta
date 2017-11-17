@@ -39,4 +39,29 @@ public class Rond extends Figure implements Surfacable {
 		return point.distance(point, centre) <= rayon;
 	}
 
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Rond other = (Rond) obj;
+		if (centre == null) {
+			if (other.centre != null)
+				return false;
+		} else if (!centre.equals(other.centre))
+			return false;
+		if (rayon != other.rayon)
+			return false;
+		return true;
+	}
+
+	
+	
+	
+
 }

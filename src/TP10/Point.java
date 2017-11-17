@@ -38,6 +38,12 @@ public class Point {
 
 	}
 	
+	/**
+	 * Retourne la distance mathemathique entre deux points sur un plan carthesien (double)
+	 * @param pt1
+	 * @param pt2
+	 * @return double
+	 */
 	public double distance(Point pt1, Point pt2) {
 		double distance1 = Math.sqrt((pt1.getX()-pt2.getX())*(pt1.getX()-pt2.getX())+(pt1.getY()-pt2.getY())*(pt1.getY()-pt2.getY()));
 		return distance1;

@@ -13,15 +13,16 @@ public abstract class Figure {
 	
 	/**
 	 * Renvoi une collection des points d'une figure.
-	 * @return
+	 * @return Collection<Point>
 	 */
 	public abstract Collection<Point> getPoints();
 	
 	/**
 	 * Renvoie true si le point fourni en paramètre est couvert par la figure
 	 * @param point
-	 * @return
+	 * @return boolean
 	 */
 	public abstract boolean couvre(Point point);
+	
 
 }
