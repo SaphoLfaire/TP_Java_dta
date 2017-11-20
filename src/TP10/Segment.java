@@ -10,9 +10,13 @@ public class Segment extends Figure {
 	private Point fin;
 	private int longueur;
 	private boolean horizontal;
+	
+	public Segment (Point debut, int longueur, boolean horizontal) {
+		this(Couleur.getCouleurDefaut(), debut, longueur, horizontal);
+	}
 
-	public Segment(Point debut, int longueur, boolean horizontal) {
-		super();
+	public Segment(Couleur color, Point debut, int longueur, boolean horizontal) {
+		super(color);
 		this.debut = debut;
 		this.longueur = longueur;
 		this.horizontal = horizontal;
@@ -76,6 +80,12 @@ public class Segment extends Figure {
 		} else if (!fin.equals(other.fin))
 			return false;
 		return true;
+	}
+
+	@Override
+	public Couleur getCouleur() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

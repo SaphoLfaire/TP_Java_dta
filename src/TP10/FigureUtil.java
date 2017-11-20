@@ -7,7 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-import java.util.stream.Collector;
 
 public class FigureUtil {
 
@@ -164,5 +163,14 @@ public class FigureUtil {
 
 		return Optional.empty();
 	}
+	
+	public static Couleur getRandomCouleur () {
+		Couleur values[] = Couleur.values();
+		Random rand = new Random();
+		int index = rand.nextInt(5 - 1 + 1) + 1;
+		return values[index];
+		
+		}
+	
 
 }

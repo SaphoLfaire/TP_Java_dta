@@ -10,16 +10,34 @@ public class Rond extends Figure implements Surfacable {
 	private int rayon;
 	private List<Point> pointTab = new ArrayList<Point>();
 
+	/**
+	 * Bon alors votre attention s'il vous plait.
+	 * Dans le premier constructeur, on laisse le choix
+	 * a l'utilisateur de ne définir que le centre et le
+	 * rayon. Mais !! Si celui ci veut aussi definir la couleur, 
+	 * on a une second construteur. Le premier constructeur (le
+	 * plus simple) appelle donc le second constructeur avec
+	 * THIS et ses parametres + la couleur par defaut. Et le second
+	 * constructeur renvoi la couleur à FIGURE la classe ABSTRAITE
+	 * pour que celle ci definisse la couleur grave à SUPER(COLOR);
+	 * puis initialise le centre et le rayon.
+	 * @param point
+	 * @param r
+	 */
 	public Rond(Point point, int r) {
-		super();
+		this(Couleur.getCouleurDefaut(), point, r);
+
+	}
+
+	public Rond(Couleur color, Point point, int r) {
+		super(color);
 		this.centre = point;
 		this.rayon = r;
-
 	}
 
 	@Override
 	public String toString() {
-		return "Rond [" + centre + ", r=" + rayon + "]";
+		return "Rond " + getCouleur().getCode()+"  [" + centre + ", r=" + rayon + "]";
 	}
 
 	@Override
@@ -35,11 +53,9 @@ public class Rond extends Figure implements Surfacable {
 	}
 
 	@Override
-	public boolean couvre(Point point) {		
+	public boolean couvre(Point point) {
 		return point.distance(point, centre) <= rayon;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -59,9 +75,5 @@ public class Rond extends Figure implements Surfacable {
 			return false;
 		return true;
 	}
-
-	
-	
-	
 
 }

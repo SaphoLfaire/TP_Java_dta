@@ -55,58 +55,71 @@ public class TP_main {
 		System.out.println(rd1.couvre(p1));
 		System.out.println(rt1.couvre(p1));
 		System.out.println(segment.couvre(p1));
-		
+
 		FigureUtil.afficheTest("TP22", "(getFigureEn()) le rond puis rien");
 		Dessin dessin = new Dessin();
 		dessin.add(segment);
 		dessin.add(rt1);
 		dessin.add(rd1);
 		dessin.add(carre);
-		Point p4 = new Point(50,54);
-		
+		Point p4 = new Point(50, 54);
+
 		Optional<Figure> resOp2 = FigureUtil.getFigureEn(p1, dessin);
 		if (resOp2.isPresent()) {
 			Figure resFig2 = resOp2.get();
 			resFig2.affiche();
-		}
-		else {
+		} else {
 			System.out.println("Pas de figure ! le point n'est couvert par rien");
 		}
-		
+
 		Optional<Figure> resOp = FigureUtil.getFigureEn(p4, dessin);
 		if (resOp.isPresent()) {
 			Figure resFig = resOp.get();
 			resFig.affiche();
-		}
-		else {
+		} else {
 			System.out.println("Pas de figure ! le point n'est couvert par rien");
 		}
-		
+
 		FigureUtil.afficheTest("TP23", "true, false, true, false, true, false, true, false");
 		Rond rd2 = new Rond(p1, 4);
-		Rond rd3 = new Rond (p1, 3);
-		System.out.println(rd1.equals(rd2));//true
-		System.out.println(rd1.equals(rd3));//false
-		
+		Rond rd3 = new Rond(p1, 3);
+		System.out.println(rd1.equals(rd2));// true
+		System.out.println(rd1.equals(rd3));// false
+
 		Figure segment2 = new Segment(p1, 5, true);
 		Figure segment3 = new Segment(p1, 4, true);
-		System.out.println(segment.equals(segment2));//true
-		System.out.println(segment.equals(segment3));//false
-		
+		System.out.println(segment.equals(segment2));// true
+		System.out.println(segment.equals(segment3));// false
+
 		Rectangle rt2 = new Rectangle(new Point(10, 3), 2, 6);
 		Rectangle rt3 = new Rectangle(new Point(10, 3), 5, 6);
-		System.out.println(rt1.equals(rt2));//true
-		System.out.println(rt1.equals(rt3));//false
-		
+		System.out.println(rt1.equals(rt2));// true
+		System.out.println(rt1.equals(rt3));// false
+
 		Carre carre2 = new Carre(p1, 5);
 		Rectangle rtcarre = new Rectangle(p1, 5, 5);
-		System.out.println(carre.equals(carre2)); //true
-		System.out.println(carre.equals(rtcarre)); //false : a corriger
-		
-		FigureUtil.afficheTest("TP24", "");
-		
-		
+		System.out.println(carre.equals(carre2)); // true
+		System.out.println(carre.equals(rtcarre)); // false : a corriger
 
+		FigureUtil.afficheTest("TP24", "");
+
+		FigureUtil.afficheTest("TP30", "Bleu, Jaune, Noir");
+
+		System.out.println(Couleur.Bleu);
+		System.out.println(Couleur.Jaune);
+		System.out.println(Couleur.getCouleurDefaut());
+
+		FigureUtil.afficheTest("TP30", "rond jaune");
+
+		Rond rd4 = new Rond(Couleur.Jaune, p1, 5);
+		System.out.println(rd4.getCouleur());
+		rd4.affiche();
+		
+		FigureUtil.afficheTest("TP trhead", "suite de 1 et de 2");
+		MonThread t1 = new MonThread ("1", 15);
+		MonThread t2 = new MonThread ("2", 20);
+		t1.start();
+		t2.start();
 
 	}
 
