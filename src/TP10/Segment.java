@@ -82,11 +82,19 @@ public class Segment extends Figure {
 		return true;
 	}
 
+
 	@Override
-	public Couleur getCouleur() {
-		// TODO Auto-generated method stub
-		return null;
+	public double distanceOrigine() {
+		Point origine = new Point (0,0);
+		if (debut.distance(debut, origine)<fin.distance(fin, origine)) {
+			return debut.distance(debut, origine);			
+		}
+		else {
+			return fin.distance(fin, origine);
+		}
 	}
+
+
 	
 	
 

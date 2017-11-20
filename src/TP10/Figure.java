@@ -2,7 +2,7 @@ package TP10;
 
 import java.util.Collection;
 
-public abstract class Figure {
+public abstract class Figure implements Comparable<Figure> {
 
 	private Couleur color;
 
@@ -33,6 +33,19 @@ public abstract class Figure {
 
 	public Couleur getCouleur() {
 		return this.color;
+	}
+	
+	public abstract double distanceOrigine();
+	
+	@Override
+	public int compareTo(Figure o) {
+		if (distanceOrigine()<o.distanceOrigine()) {
+			return -1;
+		}
+		if (distanceOrigine()>o.distanceOrigine()){
+			return 1;
+		}
+		return 0;
 	}
 
 }

@@ -8,18 +8,17 @@ public class Rectangle extends Figure implements Surfacable {
 	private int largeur;
 	private int hauteur;
 	private Point pointBasGauche;
-	
+
 	/**
-	 * Bon alors votre attention s'il vous plait.
-	 * Dans le premier constructeur, on laisse le choix
-	 * a l'utilisateur de ne définir que le centre et le
-	 * rayon. Mais !! Si celui ci veut aussi definir la couleur, 
-	 * on a une second construteur. Le premier constructeur (le
-	 * plus simple) appelle donc le second constructeur avec
-	 * THIS et ses parametres + la couleur par defaut. Et le second
-	 * constructeur renvoi la couleur à FIGURE la classe ABSTRAITE
-	 * pour que celle ci definisse la couleur grave à SUPER(COLOR);
-	 * puis initialise le centre et le rayon.
+	 * Bon alors votre attention s'il vous plait. Dans le premier constructeur, on
+	 * laisse le choix a l'utilisateur de ne définir que le centre et le rayon. Mais
+	 * !! Si celui ci veut aussi definir la couleur, on a une second construteur. Le
+	 * premier constructeur (le plus simple) appelle donc le second constructeur
+	 * avec THIS et ses parametres + la couleur par defaut. Et le second
+	 * constructeur renvoi la couleur à FIGURE la classe ABSTRAITE pour que celle ci
+	 * definisse la couleur grave à SUPER(COLOR); puis initialise le centre et le
+	 * rayon.
+	 * 
 	 * @param point
 	 * @param largeur
 	 * @param hauteur
@@ -111,8 +110,10 @@ public class Rectangle extends Figure implements Surfacable {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		/**
+		 * if (obj.getClass() != getClass() ) return false; if (obj.getClass() ==
+		 * Carre.class) return true;
+		 **/
 		Rectangle other = (Rectangle) obj;
 		if (pointBasGauche == null) {
 			if (other.getPointBasGauche() != null)
@@ -141,9 +142,22 @@ public class Rectangle extends Figure implements Surfacable {
 	}
 
 	@Override
-	public Couleur getCouleur() {
-		// TODO Auto-generated method stub
-		return null;
+	public double distanceOrigine() {
+		Point origine = new Point(0, 0);
+		Double temp = origine.distance(origine, pointBasGauche);
+		Double[] doubleTab = { origine.distance(origine, pointBasGauche),
+				origine.distance(origine, getPointHautGauche()), origine.distance(origine, getPointHautDroit()),
+				origine.distance(origine, getPointBasDroit()) };
+
+		for (int i = 0; i < doubleTab.length; i++) {
+			if (doubleTab[i] <= temp) {
+				temp = doubleTab[i];
+			}
+		}
+
+		return temp;
 	}
+
+	
 
 }

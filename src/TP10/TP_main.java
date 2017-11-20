@@ -80,7 +80,7 @@ public class TP_main {
 			System.out.println("Pas de figure ! le point n'est couvert par rien");
 		}
 
-		FigureUtil.afficheTest("TP23", "true, false, true, false, true, false, true, false");
+		FigureUtil.afficheTest("TP23", "true, false, true, false, true, false, true, true");
 		Rond rd2 = new Rond(p1, 4);
 		Rond rd3 = new Rond(p1, 3);
 		System.out.println(rd1.equals(rd2));// true
@@ -90,18 +90,39 @@ public class TP_main {
 		Figure segment3 = new Segment(p1, 4, true);
 		System.out.println(segment.equals(segment2));// true
 		System.out.println(segment.equals(segment3));// false
-
+		
+		
+		Rectangle rt4 = new Rectangle(new Point(10, 3), 2, 6);
 		Rectangle rt2 = new Rectangle(new Point(10, 3), 2, 6);
 		Rectangle rt3 = new Rectangle(new Point(10, 3), 5, 6);
-		System.out.println(rt1.equals(rt2));// true
+		System.out.println(rt4.equals(rt2));// true
 		System.out.println(rt1.equals(rt3));// false
 
 		Carre carre2 = new Carre(p1, 5);
 		Rectangle rtcarre = new Rectangle(p1, 5, 5);
 		System.out.println(carre.equals(carre2)); // true
-		System.out.println(carre.equals(rtcarre)); // false : a corriger
+		System.out.println(carre.equals(rtcarre)); // true
+		System.out.println("segment vs rectangle carre");
+		System.out.println(segment2.equals(rtcarre));
+		System.out.println("segment vs carre");
+		System.out.println(segment2.equals(carre));
+		System.out.println("segment vs rond");
+		System.out.println(segment2.equals(rd1));
+		System.out.println("rond vs rectagnle");
+		System.out.println(rd1.equals(rt1));
+		System.out.println("rond vs carre");
+		System.out.println(rd1.equals(carre));
 
-		FigureUtil.afficheTest("TP24", "");
+		FigureUtil.afficheTest("TP24", "distance + compareTo()");
+		System.out.println(rt1.distanceOrigine());
+		System.out.println(rd1.distanceOrigine());
+		System.out.println(carre.distanceOrigine());
+		System.out.println(segment3.distanceOrigine());
+		System.out.println(segment3.compareTo(rd1));
+		
+		FigureUtil.afficheTest("TP24", "trieProcheOrigine");
+		System.out.println(FigureUtil.trieProcheOrigine(dessin));
+		
 
 		FigureUtil.afficheTest("TP30", "Bleu, Jaune, Noir");
 
@@ -115,11 +136,13 @@ public class TP_main {
 		System.out.println(rd4.getCouleur());
 		rd4.affiche();
 		
+		/**
 		FigureUtil.afficheTest("TP trhead", "suite de 1 et de 2");
 		MonThread t1 = new MonThread ("1", 15);
 		MonThread t2 = new MonThread ("2", 20);
 		t1.start();
 		t2.start();
+		*/
 
 	}
 

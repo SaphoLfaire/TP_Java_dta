@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class FigureUtil {
 
@@ -171,6 +172,19 @@ public class FigureUtil {
 		return values[index];
 		
 		}
+	
+	public static Collection<Figure> trieProcheOrigine(Dessin dessin) {
+		List<Figure> arrFtrie = new ArrayList<Figure>();
+		arrFtrie =  dessin.getFigures().stream()
+				.sorted((x,y)-> x.compareTo(y))
+				.collect(Collectors.toList());
+		return arrFtrie;
+	}
+	
+	public static Collection<Figure> trieDominant(Dessin dessin){
+		List<Figure> listFigSurf = new ArrayList<Figure>();
+		return null;
+	}
 	
 
 }

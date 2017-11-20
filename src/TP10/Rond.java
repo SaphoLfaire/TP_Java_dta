@@ -76,4 +76,12 @@ public class Rond extends Figure implements Surfacable {
 		return true;
 	}
 
+	@Override
+	public double distanceOrigine() {
+		Point origine = new Point(0,0);
+		return this.centre.distance(centre, origine)-this.rayon;
+	}
+
+	
+
 }
