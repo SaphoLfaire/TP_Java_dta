@@ -67,7 +67,7 @@ public class Rectangle extends Figure implements Surfacable {
 	}
 
 	@Override
-	public double Surface() {
+	public double surface() {
 		double surface = largeur * hauteur;
 		return surface;
 	}

@@ -41,7 +41,7 @@ public class Rond extends Figure implements Surfacable {
 	}
 
 	@Override
-	public double Surface() {
+	public double surface() {
 		double surface = Math.PI * rayon * rayon;
 		return surface;
 	}
@@ -81,6 +81,8 @@ public class Rond extends Figure implements Surfacable {
 		Point origine = new Point(0,0);
 		return this.centre.distance(centre, origine)-this.rayon;
 	}
+
+
 
 	
 

@@ -118,8 +118,9 @@ public class FigureUtil {
 	}
 
 	/**
-	 * Cette methode permet de generer une collection de n
-	 * figures choisi aleatoirement. N est choisi par l'utilisateur.
+	 * Cette methode permet de generer une collection de n figures choisi
+	 * aleatoirement. N est choisi par l'utilisateur.
+	 * 
 	 * @param nbFigure
 	 * @return
 	 */
@@ -134,6 +135,7 @@ public class FigureUtil {
 
 	/**
 	 * Petit methode vite faite qui permet de specifier les affichages console.
+	 * 
 	 * @param nomTP
 	 * @param test
 	 */
@@ -142,12 +144,12 @@ public class FigureUtil {
 	}
 
 	/**
-	 * Cette fonction permet de savoir quelle figure couvre le point fourni.
-	 * Etant donne qu'il est possible que le point ne soit pas couvert, la methode
-	 * est battie avec un Optional<>. De ce fait, il est necessaire de recuperer
-	 * le resultat dans un Optional<Figure>, et de tester si l'Optional est vide 
-	 * ou non.
-	 *  
+	 * Cette fonction permet de savoir quelle figure couvre le point fourni. Etant
+	 * donne qu'il est possible que le point ne soit pas couvert, la methode est
+	 * battie avec un Optional<>. De ce fait, il est necessaire de recuperer le
+	 * resultat dans un Optional<Figure>, et de tester si l'Optional est vide ou
+	 * non.
+	 * 
 	 * @param point
 	 * @param dessin
 	 * @return
@@ -164,27 +166,30 @@ public class FigureUtil {
 
 		return Optional.empty();
 	}
-	
-	public static Couleur getRandomCouleur () {
+
+	public static Couleur getRandomCouleur() {
 		Couleur values[] = Couleur.values();
 		Random rand = new Random();
 		int index = rand.nextInt(5 - 1 + 1) + 1;
 		return values[index];
-		
-		}
-	
-	public static Collection<Figure> trieProcheOrigine(Dessin dessin) {
-		List<Figure> arrFtrie = new ArrayList<Figure>();
-		arrFtrie =  dessin.getFigures().stream()
-				.sorted((x,y)-> x.compareTo(y))
-				.collect(Collectors.toList());
-		return arrFtrie;
+
 	}
-	
-	public static Collection<Figure> trieDominant(Dessin dessin){
+
+	public static Collection<Figure> trieProcheOrigine(Dessin dessin) {
+		return dessin.getFigures().stream()
+				.sorted((x, y) -> x.compareTo(y))
+				.collect(Collectors.toList());
+	}
+
+	public static Collection<Figure> trieDominant(Dessin dessin) {
 		List<Figure> listFigSurf = new ArrayList<Figure>();
+		/*
+		listFigSurf = dessin.getFigures().stream()
+				.filter
+				.sorted((x, y) -> Integer.compare(x.surface(), y.surface()))
+				.collect(Collectors.toList());
+				*/
 		return null;
 	}
-	
 
 }
